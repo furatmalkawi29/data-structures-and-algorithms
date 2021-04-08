@@ -3,22 +3,28 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function named replaceZeros that, given a string, uses Regex to replace all '0' with the word 'zero'. 
+Write a function named replaceZeros that, given a string, uses Regex to replace all '0' with the word 'zero'.
 ------------------------------------------------------------------------------------------------ */
 
 const replaceZeros = (string) => {
-  // Solution code here...
-}
+  let regEx = /[0]/g;
+  return string.replace(regEx,'zero');
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function named addOne that, given an array of numbers, uses map to return a new array with each value simply incremented by 1. 
+Write a function named addOne that, given an array of numbers, uses map to return a new array with each value simply incremented by 1.
 ------------------------------------------------------------------------------------------------ */
 
 const addOne = (arr) => {
-  // Solution code here...
-}
+
+  let arr2 = arr.map(element => {
+    return element+1;
+  });
+
+  return arr2 ;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -27,8 +33,11 @@ Write a function named addQuestion that, given an array of strings, uses map to 
 ------------------------------------------------------------------------------------------------ */
 
 const addQuestion = (arr) => {
-  // Solution code here...
-}
+  let arr2 = arr.map(element => {
+    return element+'?';
+  });
+
+  return arr2 ;};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -41,7 +50,12 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 ------------------------------------------------------------------------------------------------ */
 
 const forLoopTwoToThe = (arr) => {
-  // Solution code here...
+  let arr2 = [];
+
+  for (let element of arr)
+  {arr2.push(Math.pow(2,element));}
+
+  return arr2;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -51,8 +65,15 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  // Solution code here...
-};
+  let arr2 = [];
+
+  arr.forEach( element => {
+    arr2.push(Math.pow(2,element));
+
+  });
+
+  return arr2;};
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -61,7 +82,12 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
-  // Solution code here...
+
+  let arr2 = arr.map( element => {
+    return Math.pow(2,element);
+
+  });
+  return arr2;
 };
 
 /* ------------------------------------------------------------------------------------------------
