@@ -2,6 +2,50 @@
 
 ## Language: `JavaScript`
 
+| challange    | Link        |
+|:-----------: |:----------: |
+| **Challenge01**     | <https://github.com/furatmalkawi29/data-structures-and-algorithms/pull/15> |
+| **Challenge02**     | <> |
+| **Challenge03**     | <> |
+| **Challenge04**     | <> |
+| **Challenge05**     | <> |
+| **Challenge06**     | <> |
+| **Challenge07**     | <> |
+| **Challenge08**     | <> |
+| **Challenge09**     | <> |
+| **Challenge010**     | <> |
+| **Challenge011**     | <> |
+| **Challenge012**     | <> |
+| **Challenge013**     | <> |
+| **Challenge014**     | <> |
+| **Challenge015**     | <> |
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Folder and Challenge Setup
 
 Each type of code challenge has slightly different instructions. Please refer to the notes and examples below for instructions for each DS&A assignment type.
