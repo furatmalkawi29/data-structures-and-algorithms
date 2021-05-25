@@ -5,18 +5,23 @@ let Node = require('./node.js');
 
 class LinkedList {
   constructor() {
-    this.head = null;
+    this.head = null; //()-->null //head
+    this.tail = null;
+    this.length=0;
   }
 
-  insert(data) {
+  insert(data) { //TASK:: ------> insert node at the start of list
     try {
-      let node = new Node(data);
-      if (!this.head) {
-        this.head = node;
-      }
-      else {
-        node.next = this.head;
-        this.head = node;
+      let node = new Node(data); //[a1]--> null
+      if (!this.head) { //is head pointing to null? (empty list?)
+        this.head = node; // let head points to new node
+        this.tail = node;
+        this.length++;
+      } //()-->[a1]-->null
+      else { //is head pointing to another node? // ()-->[a3]-->null
+        node.next = this.head; //let node points to first node // [a5]-->[a3]-->null
+        this.head = node;// let head points to new node // ()-->[a5]-->[a3]-->null
+        this.length++;
       }
     } catch (error) {
       console.log('error' + error);
@@ -25,83 +30,120 @@ class LinkedList {
 
   }
 
-  includes(value){
-    if(this.head){
-      let testNode = this.head;
-      if(testNode.value === value) return true;
-      if (testNode.next){
-        testNode= testNode.next;
-        if(testNode === value) return true;
+  includes(value){ // TASK:: search for a value in list
+    if(this.head){// does list have nodes? ()-->[a1]-->[a2]-->[a3]-->null
+      let testNode = this.head; //(testNode)-->[a1]-->[]
+      while (testNode.next){// is this the last node?
+        if(testNode.value === value) return true; //return true; //is node1 value === search value?
+        testNode=testNode.next; //(testNode)-->[a1]-->[] ==>>>> (testNode)-->[a2]-->[] ==>
       }
+
+      if(testNode.value === value) return true; // checks last node value
     } return false;
   }
 
   toString() {
-    let temp = '';
-    if (!this.head) temp = 'Empty Linked List ';
-    else {
-      let stringed = this.head;
-      temp = `{ ${stringed.value} } -> `;
-      while (stringed.next) {
-        stringed = stringed.next;
-        temp += `{ ${stringed.value} } -> `;
+    let list;
+    if (this.head){
+      list = `(head)-->`;
+      let testNode = this.head; //(testNode)-->[a1]-->[]
+      while (testNode){// is this the last node?
+        list = list + `[${testNode.value}]-->`;
+        testNode=testNode.next;
       }
-      temp += `NULL`;
-    }
-    return temp;
+      list = list + ` Null`;
+    } else { list = `(head)--> NULL`; }
+
+    return list;
   }
 
-    append(value) {
+  append(value) {
     let node = new Node(value);
-    try {
-      if (!this.head) {// empty linked list
+    if (this.head){
+      let cursor = this.head;
+      while(cursor.next){ //is this the last node?
+        cursor=cursor.next;
+      }
+      cursor.next=node;//let last node points to the new node
+      this.tail = node;
+      this.length++;
+
+    } else { this.head = node;
+      this.tail = node;
+      this.length++;
+
+    }// let head points to new node
+  }
+
+  insertBefore(value,newValue){
+    let node = new Node(newValue);
+    if(this.head){
+      let cursor = this.head;
+      if (cursor.value ===value){
+        node.next = cursor;
         this.head = node;
-      } else {
-        let lastNode = this.head;
-        while (lastNode.next) {
-          lastNode = lastNode.next;
+        this.length++;
+
+        return;
+      }
+      while(cursor){
+        if (cursor.next.value===value){
+          node.next = cursor.next;
+          cursor.next = node;
+          this.length++;
+
+          break;
         }
-        lastNode.next = node;
+        cursor=cursor.next;
       }
-    }
-    catch (error){
-      console.error('An error occured: ', error);
+    } else { this.head = node; // let head points to new node
+      this.tail = node;
+      this.length++;
     }
   }
-  insertBefore(value, newVal) {
-    let current = this.head;
-    let previous;
-    while ((current) && (current.value !== value)) {
-      previous = current;
-      current = current.next;
-    }
-    if (!current) {
-      throw `The value ${value}  wasn't found.`;
-    } else {
-      const newNode = new Node(newVal);
-      newNode.next = current;
-      if (current === this.head) {
-        this.head = newNode;
-      } else {
-        previous.next = newNode;
-      }
-    }
-  }
-  insertAfter(value, newVal) {
-    let current = this.head;
-    while ((current) && (current.value !== value)) {
-      current = current.next;
-    }
-    if (!current) {
-      throw `The value ${value}  wasn't found.`;
-    } else {
-      const newNode = new Node(newVal);
-      newNode.next = current.next;
-      current.next = newNode;
+
+  insertAfter(value, newValue) {
+    let node = new Node(newValue);
+    if(this.head){
+
+      let cursor = this.head;
+      while(cursor){
+        if (cursor.value===value){
+          node.next = cursor.next;
+          cursor.next = node;
+          this.tail = node;
+          this.length++;
+          break;
+        }
+        cursor=cursor.next;}
+    } else { this.head = node; // let head points to new node
+      this.tail = node;
+      this.length++;
     }
   }
 
 
+  kthFromEnd(k){
+    if (this.head){
+      if (k < this.length && k >=0 ){
+        let counter = this.length-1;
+
+        let cursor = this.head;
+        while(counter!== k){
+          console.log(cursor.value);
+          cursor=cursor.next;
+          counter--;
+        }
+        return cursor.value;
+
+      } else { return 'k is invalid'; }
+    } else { return 'Empty list.';}
+  }
 }
 
+
+
+
+
 module.exports = LinkedList;
+
