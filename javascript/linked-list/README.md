@@ -2,7 +2,7 @@
 # CODE CHALLENGE (5)
 
 
-## insert()
+## `insert()`
 
 <br><br>
 
@@ -10,60 +10,60 @@
 
 <br><br>
 
-## include ()
+## `include()`
 
 <br><br>
 
 
-![](./)
+![](./white-include.PNG)
 
 <br><br>
 
 
-## toString ()
+## `toString()`
 
 <br><br>
 
 
-![](./)
+![](./white-toString.PNG)
 
 
 
 # CODE CHALLENGE (6)
 
 
-## append()
+## `append()`
 
 <br><br>
 
 
-![](./)
+![](./white-append.PNG)
 
 <br>
 
 
-## insertAfter()
+## `insertAfter()`
 
 <br>
 
 
-![](./)
+![](./white-after.PNG)
 
 <br>
 
-## insertBefore()
+## `insertBefore()`
 
 <br>
 
 
-![](./)
+![](./white-before.PNG)
 
 <br>
 
 
 # CODE CHALLENGE (7)
 
-## kthFromEnd()
+## `kthFromEnd()`
 
 <br>
 
