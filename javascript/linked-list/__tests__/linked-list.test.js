@@ -82,7 +82,7 @@ describe('Linked List', () => {
 
     expect(list.toString()).toEqual('(head)-->[2]-->[1]-->[3]--> Null');
   });
-  
+
   it('should successfully add multiple nodes to the end of a linked list', () => {
 
     let list = new LinkedList();
@@ -221,7 +221,7 @@ describe('Linked List', () => {
   });
 
 
-  it ('should return "Empty list." when linked list is empty' ,()=> {
+  it ('should return "Empty list." messege when linked list is empty' ,()=> {
     let list = new LinkedList();
 
     console.log (list.toString());
