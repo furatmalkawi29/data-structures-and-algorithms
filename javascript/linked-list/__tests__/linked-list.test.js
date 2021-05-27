@@ -154,47 +154,47 @@ describe('Linked List', () => {
 
   });
 
-  // it ('should return "k is invalid" when k is greater than the length of the linked list' ,()=> {
-  //   let list = new LinkedList();
-  //   list.insert(1);
-  //   list.insert(2);
-  //   list.insert(3);
-  //   list.insert(4);
-  //   list.insert(5);
-  //   list.insert(6);
+  it ('should return "k is invalid" when k is greater than the length of the linked list' ,()=> {
+    let list = new LinkedList();
+    list.insert(1);
+    list.insert(2);
+    list.insert(3);
+    list.insert(4);
+    list.insert(5);
+    list.insert(6);
 
-  //   let k = 7;
+    let k = 7;
 
-  //   expect(list.kthFromEnd(k)).toEqual('k is invalid');
-  // });
+    expect(list.kthFromEnd(k)).toEqual('k is invalid');
+  });
 
-  // it ('should return "k is invalid" when k equals the length of the linked list' ,()=> {
-  //   let list = new LinkedList();
-  //   list.insert(1);
-  //   list.insert(2);
-  //   list.insert(3);
-  //   list.insert(4);
-  //   list.insert(5);
-  //   list.insert(6);
+  it ('should return "k is invalid" when k equals the length of the linked list' ,()=> {
+    let list = new LinkedList();
+    list.insert(1);
+    list.insert(2);
+    list.insert(3);
+    list.insert(4);
+    list.insert(5);
+    list.insert(6);
 
-  //   let k = 6;
+    let k = 6;
 
-  //   expect(list.kthFromEnd(k)).toEqual('k is invalid');
-  // });
+    expect(list.kthFromEnd(k)).toEqual('k is invalid');
+  });
 
-  // it ('should return "k is invalid" when k is a negative number' ,()=> {
-  //   let list = new LinkedList();
-  //   list.insert(1);
-  //   list.insert(2);
-  //   list.insert(3);
-  //   list.insert(4);
-  //   list.insert(5);
-  //   list.insert(6);
+  it ('should return "k is invalid" when k is a negative number' ,()=> {
+    let list = new LinkedList();
+    list.insert(1);
+    list.insert(2);
+    list.insert(3);
+    list.insert(4);
+    list.insert(5);
+    list.insert(6);
 
-  //   let k = -1;
+    let k = -1;
 
-  //   expect(list.kthFromEnd(k)).toEqual('k is invalid');
-  // });
+    expect(list.kthFromEnd(k)).toEqual('k is invalid');
+  });
 
   it ('should successfully return the value that matches k from linked list is of a size 1' ,()=> {
     let list = new LinkedList();
