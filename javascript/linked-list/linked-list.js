@@ -9,7 +9,7 @@ class LinkedList {
     this.tail = null;
     this.length=0;
   }
-
+  //methods
   insert(data) {
     try {
       let node = new Node(data);
