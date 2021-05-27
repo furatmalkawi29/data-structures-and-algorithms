@@ -47,7 +47,7 @@
 <br>
 
 
-![](./white-after.PNG)
+![](./white-after.png)
 
 <br>
 
@@ -56,7 +56,7 @@
 <br>
 
 
-![](./white-before.PNG)
+![](./white-before.png)
 
 <br>
 
