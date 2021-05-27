@@ -71,6 +71,7 @@ describe('Linked List', () => {
       '(head)-->[5]-->[4]-->[3]-->[2]-->[1]--> Null');
   });
 
+<<<<<<< HEAD
 
   it('should successfully add a node to the end of the linked list',() => {
     let list = new LinkedList;
@@ -230,4 +231,6 @@ describe('Linked List', () => {
     expect(list.kthFromEnd(k)).toBe('Empty list.');
   });
 
+=======
+>>>>>>> cd3792092f7339e719e8caaaefce298b22748406
 });
