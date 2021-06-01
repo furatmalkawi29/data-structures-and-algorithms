@@ -14,7 +14,7 @@ module.exports =function multiBracketValidation (input){
     return 'Error:: Empty Input';
 
   let stringStack = new Stack();
-  for (let string of stringArr) {8;
+  for (let string of stringArr) {
 
     if(string ==='{' || string ==='(' || string ==='[')
       stringStack.push(string);
