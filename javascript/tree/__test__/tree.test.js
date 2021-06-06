@@ -2,9 +2,11 @@
 
 const Node = require('../node.js');
 const BinaryTree = require('../tree.js');
-let tree = null;
+const BinarySearchTree = require('../BST.js');
 
 describe('Binary Tree', () => {
+
+  let tree;
   beforeAll(() => {
     let one = new Node(1);// tree root
     let two = new Node(2);
@@ -65,41 +67,68 @@ describe('Binary Tree', () => {
 });
 
 
+
+
 describe('add and contains', () => {
-  beforeAll(() => {
-    let one = new Node(1);// tree root
-    let two = new Node(2);
-    let three = new Node(3);
-    let four = new Node(4);
-    let five = new Node(5);
-    let six = new Node(6);
-    let seven = new Node(7);
-    let eight = new Node(8);
-    let nine = new Node(9);
-    let ten = new Node(10);
-    let eleven = new Node(11);
-
-
-    six.right = ten;
-    six.left = five;
-    five.left=one;
-    one.right = three;
-    ten.right=eleven;
-    ten.left=eight;
-    //            6
-    //     5               10
-    // 1        -       8      11
-    //     3
-
-    tree = new BinaryTree(six);
-  });
 
   it('Can successfully instantiate an empty tree', () => {
-    let tree2 = new BinaryTree();
+    let tree = new BinaryTree();
 
     // assert
-    expect(tree2.root).toEqual(null);
-    expect(tree2.inOrder()).toEqual([]);
+    expect(tree.root).toEqual(null);
+    expect(tree.inOrder()).toEqual([]);
   });
 
+  it('Can successfully instantiate a tree with a single root node', () => {
+    let tree = new BinarySearchTree();
+    tree.add(7);
+    // assert
+    expect(tree.root).not.toBeNull();
+    expect(tree.root.value).toEqual(7);
+    expect(tree.inOrder()).toEqual([7]);
+  });
+
+
+  it('Can successfully add a left child and right child to a single root node', () => {
+    let tree = new BinarySearchTree();
+    tree.add(7);
+    tree.add(5);
+    tree.add(10);
+
+    // assert
+    expect(tree.root.value).toEqual(7);
+    expect(tree.inOrder()).toEqual([5,7,10]);
+  });
+
+  it('Can successfully return true when value exists in tree', () => {
+    let tree = new BinarySearchTree();
+    tree.add(7);
+    tree.add(5);
+    tree.add(10);
+
+    // assert
+    expect(tree.contains(7)).toBeTruthy();
+    expect(tree.contains(5)).toBeTruthy();
+    expect(tree.contains(10)).toBeTruthy();
+  });
+
+  it('Can successfully return false when value doesnt exists in tree', () => {
+    let tree = new BinarySearchTree();
+    tree.add(7);
+    tree.add(5);
+    tree.add(10);
+
+    // assert
+    expect(tree.contains(4)).toBeFalsy();
+    expect(tree.contains(11)).toBeFalsy();
+    expect(tree.contains(0)).toBeFalsy();
+  });
+
+  it('Can return exception messege when tree is empty', () => {
+    let tree = new BinarySearchTree();
+
+    // assert
+    expect(tree.contains(4)).toEqual('Error:: Empty Tree.');
+
+  });
 });
