@@ -41,6 +41,10 @@ Define a method named add that accepts a value, and adds a new node with that va
 
 - Define a method named contains that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
 
+- **Code Challenge 16** 
+- Write an instance method called find-maximum-value. Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree.
+
+
 <br>
 <br>
 
@@ -59,6 +63,10 @@ Define a method named add that accepts a value, and adds a new node with that va
 6. Else do the same but with the right node
 7. after  that return the node  
 
+<br>
+
+- **Code Challenge 16** 
+- used recursion to traverse each node in tree cause its not BST, values arent ordered, I traversed each nod and checked its left and right nodes and checked if its value was greater than the max and asigned it to max variable if that was true . 
 
 ### **Efficiency** : recursion  increased the Big O for the methods . cause with each time the function called in recursion it takes up a space in the call stack . and takes time to re-invoke the function . 
 
@@ -80,10 +88,17 @@ Define a method named add that accepts a value, and adds a new node with that va
 
 **contains**: Accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
 
-
+**findMaximumValue()** : accepts no values and return the maximum value stored in the tree.
 
 ## Whiteboard 
 <br>
 <br>
 
+## Code Challenge 15
+
 ![Whiteboard](tree.png)
+
+
+## Code Challenge 16
+
+![Whiteboard](find.png)

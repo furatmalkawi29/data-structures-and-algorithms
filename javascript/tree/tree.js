@@ -60,6 +60,21 @@ module.exports = class BinaryTree {
     return result;
   }
 
+  findMaximumValue (){
+    let max;
+    if (this.root){
+      max = this.root.value;
+      let traverse = (node) => {
+        if(node.value> max)
+          max = node.value;
+        if(node.left) traverse(node.left);
+        if(node.right) traverse(node.right);};
 
+      traverse(this.root);
+      return max;
+    }else {
+      return 'ERROR:: tree is empty.';
+    }
+  }
 };
 
