@@ -44,6 +44,9 @@ Define a method named add that accepts a value, and adds a new node with that va
 - **Code Challenge 16** 
 - Write an instance method called find-maximum-value. Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree.
 
+- **Code Challenge 17** 
+- Breadth-first search (BFS) is an algorithm for traversing or searching tree or graph data structures. Uses Queue data structure for finding the shortest path.
+It traverses data level by level, instead of reaching the last level in tree first . 
 
 <br>
 <br>
@@ -68,6 +71,9 @@ Define a method named add that accepts a value, and adds a new node with that va
 - **Code Challenge 16** 
 - used recursion to traverse each node in tree cause its not BST, values arent ordered, I traversed each nod and checked its left and right nodes and checked if its value was greater than the max and asigned it to max variable if that was true . 
 
+- **Code Challenge 17** 
+- used recursion and queue, where you enqueue the node's childeren in the right breadth order . nad keep doing it till you visit every node in the tree .
+
 ### **Efficiency** : recursion  increased the Big O for the methods . cause with each time the function called in recursion it takes up a space in the call stack . and takes time to re-invoke the function . 
 
 ### If tree was balanced the Big O would be log n on average . 
@@ -90,6 +96,8 @@ Define a method named add that accepts a value, and adds a new node with that va
 
 **findMaximumValue()** : accepts no values and return the maximum value stored in the tree.
 
+**breadthFirst** takes a Binary Tree as its unique input. traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered.
+
 ## Whiteboard 
 <br>
 <br>
@@ -102,3 +110,8 @@ Define a method named add that accepts a value, and adds a new node with that va
 ## Code Challenge 16
 
 ![Whiteboard](find.png)
+
+
+## Code Challenge 17
+
+![Whiteboard](breadth2.png)

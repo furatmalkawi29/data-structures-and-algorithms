@@ -1,5 +1,6 @@
 'use strict';
 
+const Queue = require('../stack-and-queue/queue.js');
 
 module.exports = class BinaryTree {
   constructor(root=null) {
@@ -75,6 +76,29 @@ module.exports = class BinaryTree {
     }else {
       return 'ERROR:: tree is empty.';
     }
+  }
+
+
+
+  breadthFirst (){
+    let result = [];
+    let queue = new Queue();
+
+    if (this.root){
+      let traverse = node=>{
+        let currentNode = node;
+        if(currentNode.left) queue.enqueue(currentNode.left);
+        if(currentNode.right) queue.enqueue(currentNode.right);
+        result.push(currentNode.value);
+
+
+        let dequeueNode = queue.dequeue();
+        if (dequeueNode !=='ERROR:: Queue Is Empty')
+          traverse(dequeueNode);
+      };
+      traverse(this.root);
+    }
+    return result;
   }
 };
 
