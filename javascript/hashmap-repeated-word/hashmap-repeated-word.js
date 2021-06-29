@@ -1,5 +1,4 @@
 
-let HashTable = require('../hashmap-repeated-word/hashmap-repeated-word.js');
 
 function hashmapRepeatedWord (paragraph){
   //remove punctuation mark from "summer,"
