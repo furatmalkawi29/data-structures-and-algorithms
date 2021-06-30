@@ -39,7 +39,7 @@ class LinkedList {
 //>>>>>>>> End Linked List >>>>>>>>>>>>>>>>>>>>>>>>
 //>>>>>>>> Begin Hash Table >>>>>>>>>>>>>>>>>>>>>>>
 
-class HashTable {
+module.exports = class HashTable {
   constructor(size) {
     this.size = size;
     this.table = new Array(size);
@@ -89,6 +89,6 @@ class HashTable {
 
     return this.table[hash]?true:false;
   }
-}
+};
 
 //>>>>>>>> End Hash Table >>>>>>>>>>>>>>>>>>>>>>>>>
