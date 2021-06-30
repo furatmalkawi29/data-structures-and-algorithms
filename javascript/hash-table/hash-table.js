@@ -1,45 +1,6 @@
+let LinkedList = require('../linked-list/linked-list');
 
-
-//>>>>>>>> Begin Linked List >>>>>>>>>>>>>>>>>>>>>
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
-
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
-  add(value) {
-    const node = new Node(value);
-    if (!this.head) {
-      this.head = node;
-      return;
-    }
-
-    let current = this.head;
-    while (current.next) {
-      current = current.next;
-    }
-    current.next = node;
-  }
-
-  values() {
-    let values = [];
-    let current = this.head;
-    while (current) {
-      values.push(current.value);
-      current = current.next;
-    }
-    return values;
-  }
-}
-//>>>>>>>> End Linked List >>>>>>>>>>>>>>>>>>>>>>>>
-//>>>>>>>> Begin Hash Table >>>>>>>>>>>>>>>>>>>>>>>
-
-module.exports = class HashTable {
+class HashTable {
   constructor(size) {
     this.size = size;
     this.table = new Array(size);
@@ -47,6 +8,8 @@ module.exports = class HashTable {
 
   hash(key) {
     let hash = 0;
+    //if hash wasnt string
+    key = typeof key ==='string'?key:key.toString();
 
     hash = key.split('').reduce((result, n) => {
       return result + n.charCodeAt(0);
@@ -58,18 +21,28 @@ module.exports = class HashTable {
   set(key, value) {
     //claculated the hash number
     let hash = this.hash(key);
-    //check if the cell in array does not have value
-    //then we need to initiate with an empty linked list.
-    if (!this.table[hash]) {
-      this.table[hash] = new LinkedList();
+
+    //check if key was string
+    key = typeof key ==='string'?key:key.toString();
+
+    // save the key value into linked list if key doesnt
+    //already exist
+    if (!this.contains(key)){
+      //check if the cell in array does not have value
+      //then we need to initiate with an empty linked list.
+      if (!this.table[hash]) {
+        this.table[hash] = new LinkedList();
+      }
+      // create new key value pair
+      let keyValuePair = { [key]: value };
+
+      this.table[hash].add(keyValuePair);
     }
-    // create new key value pair
-    let keyValuePair = { [key]: value };
-    // save the key value into linked list
-    this.table[hash].add(keyValuePair);
   }
 
   get(key) {
+    key = typeof key ==='string'?key:key.toString();
+
     let hash = this.hash(key);
     if(this.contains(key)){ //check if there's no values at index
       let bucketValues = this.table[hash].values();
@@ -85,10 +58,11 @@ module.exports = class HashTable {
 
 
   contains(key) {
+    key = typeof key ==='string'?key:key.toString();
     let hash = this.hash(key);
 
     return this.table[hash]?true:false;
   }
-};
+}
 
-//>>>>>>>> End Hash Table >>>>>>>>>>>>>>>>>>>>>>>>>
+module.exports =HashTable;

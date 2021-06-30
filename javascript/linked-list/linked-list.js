@@ -10,6 +10,31 @@ class LinkedList {
     this.length=0;
   }
   //methods
+
+  add(value) {
+    const node = new Node(value);
+    if (!this.head) {
+      this.head = node;
+      return;
+    }
+
+    let current = this.head;
+    while (current.next) {
+      current = current.next;
+    }
+    current.next = node;
+  }
+
+  values() {
+    let values = [];
+    let current = this.head;
+    while (current) {
+      values.push(current.value);
+      current = current.next;
+    }
+    return values;
+  }
+
   insert(data) {
     try {
       let node = new Node(data);
@@ -139,7 +164,7 @@ class LinkedList {
       } else { return 'k is invalid'; }
     } else { return 'Empty list.';}
   }
-  
+
 }
 
 
