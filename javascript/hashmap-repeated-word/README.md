@@ -4,7 +4,7 @@ Write a function called repeated word that finds the first word to occur more th
 
 ## Whiteboard Process
 
-!["hash-insert"](./repeate.png)
+!["repeat"](./repeate.png)
 
 
 ## Approach & Efficiency
