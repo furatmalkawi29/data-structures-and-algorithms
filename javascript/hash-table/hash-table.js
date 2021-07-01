@@ -8,7 +8,6 @@ class HashTable {
 
   hash(key) {
     let hash = 0;
-    //if hash wasnt string
     key = typeof key ==='string'?key:key.toString();
 
     hash = key.split('').reduce((result, n) => {
@@ -22,38 +21,28 @@ class HashTable {
     //claculated the hash number
     let hash = this.hash(key);
 
-    //check if key was string
-    key = typeof key ==='string'?key:key.toString();
-
-    // save the key value into linked list if key doesnt
-    //already exist
-    if (!this.contains(key)){
-      //check if the cell in array does not have value
-      //then we need to initiate with an empty linked list.
-      if (!this.table[hash]) {
-        this.table[hash] = new LinkedList();
-      }
-      // create new key value pair
-      let keyValuePair = { [key]: value };
-
-      this.table[hash].add(keyValuePair);
+    if (!this.table[hash]) {
+      this.table[hash] = new LinkedList();
     }
+    let keyValuePair = { [key]: value };
+    this.table[hash].add(keyValuePair);
   }
 
-  get(key) {
+  get (key){
+
     key = typeof key ==='string'?key:key.toString();
 
-    let hash = this.hash(key);
-    if(this.contains(key)){ //check if there's no values at index
-      let bucketValues = this.table[hash].values();
-      let value = bucketValues.filter(item => {
-        for (const property in item) {
-          return property ===key;
-        }
-      });
-      return value[0]?value[0][key]:'Not Found';
+    let hash= this.hash(key);
+    if (this.contains(key)){
+      let listValues = this.table[hash].values();
+      console.log(listValues);
+      for (let obj of listValues){
+        let found = obj[key]? obj[key]:null;
+        if(found)
+          return found;
+      }
     }
-    return 'Not Found';
+    return null;
   }
 
 

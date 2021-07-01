@@ -1,23 +1,54 @@
-// //>>>>>>>> Testing Hash Table >>>>>>>>>>>>>>>>>>>>>
-// let myhash = new HashTable(1024);
+'use strict';
+let HashTable = require('../../hash-table/hash-table');
 
-// myhash.set('John', 'Boss');
-// myhash.set('Cathy', 'The Real Boss');
-// myhash.set('Zach', 'Kid 1');
-// myhash.set('Allie', 'Kid 2');
-// myhash.set('Rosie', 'Dog');
-// myhash.set('Cat', 'TA');
-// myhash.set('Justin', 'Student');
-// myhash.set('Jason', 'Student');
-// myhash.set('Ben', 'Student');
-// myhash.set('Timea', 'Student');
-// myhash.set('Jen', 'Student');
-// myhash.set('Khalil', 'Student');
-// myhash.set('Michael', 'Student');
-// myhash.set('Ovi', 'Student');
-// console.log(myhash.get('Zach'));
-// console.log(myhash.contains('Zack'));
+describe(' Testing Hashtable', () => {
 
-// myhash.table.forEach((data, i) => {
-//   console.log(i, data && data.values());
-// });
+  let myhash2 = new HashTable(1024);
+
+
+
+  it('should successfully add pair to hashmap', () => {
+
+    let results;
+
+    myhash2.set('Ben', 'Student');
+
+    myhash2.table.forEach((data, i) => {
+      results= data && data.values();
+    });
+
+    expect(results).toEqual([ { Ben: 'Student' } ]);
+  });
+
+
+  it('should return the value associated with key', () => {
+
+    //action
+    let result1 = myhash2.get('Ben');
+    let result2 = myhash2.get('Be');
+
+
+    expect(result1).toEqual('Student');
+    expect(result2).toEqual(null);
+
+  });
+
+  it('should return right boolean based on key', () => {
+
+    let result1 = myhash2.contains('Ben');
+    let result2 = myhash2.contains('Be');
+
+    expect(result1).toEqual(true);
+    expect(result2).toEqual(false);
+  });
+
+  it('should return right hash based on key', () => {
+
+    let result1 = myhash2.hash('Ben');
+
+    expect(result1).toEqual(35);
+  });
+
+});
+
+
